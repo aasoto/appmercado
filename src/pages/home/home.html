@@ -1,0 +1,54 @@
+<!--<ion-header>
+  <ion-navbar>
+  	<button ion-button menuToggle icon-only>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>
+      Ionic Blank
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  The world is your oyster.
+  <p>
+    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
+  </p>
+</ion-content>-->
+
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>
+      Lista de Compras
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding id="page1">
+  <button id="listaDeCompras-button7" ion-button color="positive" block (click)="goToNuevoproduct()">
+    <ion-icon name="add-circle"></ion-icon>
+    Nuevo producto
+  </button>
+  <ion-list id="listaDeCompras-list4">
+    <ion-searchbar placeholder="" name="" id="listaDeCompras-search1"></ion-searchbar>
+    <ion-item color="none" id="listaDeCompras-list-item10">
+      <ion-avatar item-left>
+        <img />
+      </ion-avatar>
+      <h2>
+        Item
+      </h2>
+    </ion-item>
+    <ion-item color="none" id="listaDeCompras-list-item7">
+      Item 1
+    </ion-item>
+    <ion-item color="none" id="listaDeCompras-list-item8">
+      Item 2
+    </ion-item>
+    <ion-item color="none" id="listaDeCompras-list-item9">
+      Item 3
+    </ion-item>
+  </ion-list>
+</ion-content>
