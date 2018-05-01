@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { Platform, NavController, MenuController } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { Geolocation } from '@ionic-native/geolocation';
 
 import firebase from 'firebase';
 
