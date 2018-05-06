@@ -90,17 +90,26 @@
       </ion-item>
     </ion-list>
     <div class="spacer" style="height:40px;" id="iniciarSesion-spacer1"></div>
-    <button id="iniciarSesion-button1" ion-button color="stable" (click)="iniciarSesion(formulario)">
+    <button id="iniciarSesion-button1" ion-button color="dark" (click)="iniciarSesion(formulario)">
       Ingresar
     </button>
-    <button id="iniciarSesion-button2" ion-button clear color="positive" (click)="registrarUsuario(formulario)">
+    <!--<button id="iniciarSesion-button2" ion-button  color="dark" (click)="registrarUsuario(formulario)">
+      O Crear Cuenta
+    </button>-->
+    <button id="iniciarSesion-button2" ion-button  color="dark" (click)="goToCrearCuenta()">
       O Crear Cuenta
     </button>
+    <button id="login2-button12" ion-button color="dark" block on-click="goToRecuperarCuenta()">
+      Olvide Mi Contraseña
+    </button>
   </form>
-  <button id="iniciarSesion-button4" ion-button color="positive" block>
-    <ion-icon name="facebook"></ion-icon>
+  <div class="spacer" style="width:300px;height:22px;" id="login2-spacer10"></div>
+
+  <button id="iniciarSesion-button4" ion-button color="positive" block (click)="loginFacebook()">
+    <ion-icon  name="logo-facebook"></ion-icon>
+    
   </button>
-  <button id="iniciarSesion-button5" ion-button color="assertive" block>
-    <ion-icon name="googleplus"></ion-icon>
+  <button id="iniciarSesion-button5" ion-button color="danger" block>
+    <ion-icon name="logo-google"></ion-icon>
   </button>
 </ion-content>

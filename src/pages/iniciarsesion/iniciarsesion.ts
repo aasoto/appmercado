@@ -4,6 +4,9 @@ import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angu
 
 import { AutenticacionService } from "../../servicios/autenticacion.service";
 
+
+import { RecuperarCuentaPage } from "../recuperar-cuenta/recuperar-cuenta";
+import { CrearcuentaPage } from "../crearcuenta/crearcuenta"
 /**
  * Generated class for the IniciarsesionPage page.
  *
@@ -24,6 +27,17 @@ export class IniciarsesionPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad IniciarsesionPage');
   }
+    
+  goToRecuperarCuenta(params){
+    if (!params) params = {};
+    this.navCtrl.push(RecuperarCuentaPage);
+  }
+  goToCrearCuenta(params){
+    if (!params) params = {};
+    this.navCtrl.push(CrearcuentaPage);
+   }  
+  
+  
 
   iniciarSesion(formulario: NgForm){
     this.autenticacionService.iniciarSesion(formulario.value.correo, formulario.value.clave)

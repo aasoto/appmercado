@@ -13,6 +13,8 @@ import { UbicacionPage } from '../pages/ubicacion/ubicacion';
 import { NuevoproductoPage } from '../pages/nuevoproducto/nuevoproducto';
 
 import { AutenticacionService } from "../servicios/autenticacion.service";
+import { RecuperarCuentaPage } from '../pages/recuperar-cuenta/recuperar-cuenta';
+import { CrearcuentaPage } from '../pages/crearcuenta/crearcuenta';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { AutenticacionService } from "../servicios/autenticacion.service";
     IniciarsesionPage,
     EstadisticasPage,
     UbicacionPage,
-    NuevoproductoPage
+    NuevoproductoPage,
+    RecuperarCuentaPage,
+    CrearcuentaPage
   ],
   imports: [
     BrowserModule,
@@ -34,7 +38,9 @@ import { AutenticacionService } from "../servicios/autenticacion.service";
     IniciarsesionPage,
     EstadisticasPage,
     UbicacionPage,
-    NuevoproductoPage
+    NuevoproductoPage,
+    RecuperarCuentaPage,
+    CrearcuentaPage
   ],
   providers: [
     StatusBar,
