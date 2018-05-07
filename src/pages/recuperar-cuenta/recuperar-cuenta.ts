@@ -24,7 +24,9 @@ export class RecuperarCuentaPage {
   }
   goToLogin(params){
     if (!params) params = {};  
-    this.navCtrl.push(IniciarsesionPage);}
+    //this.navCtrl.push(IniciarsesionPage);
+    this.navCtrl.pop();
+    }
     
     
 }

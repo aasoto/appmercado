@@ -15,6 +15,10 @@ import { NuevoproductoPage } from '../pages/nuevoproducto/nuevoproducto';
 
 import { AutenticacionService } from "../servicios/autenticacion.service";
 
+
+import { AngularFireAuth } from 'angularfire2/auth';
+
+
 @Component({
   templateUrl: 'app.html'
 })
@@ -28,19 +32,27 @@ export class MyApp {
   @ViewChild('contenido') contenido:NavController;
 
   usuarioEstaConectado = false;
-
-  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, public menuCtrl:MenuController, public autenticacionService:AutenticacionService) {
+  
+  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen,
+     public menuCtrl:MenuController, public autenticacionService:AutenticacionService
+    , private afAuth: AngularFireAuth, 
+      private splashscreen: SplashScreen) {
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
       statusBar.styleDefault();
       splashScreen.hide();
     });
-
-    firebase.initializeApp({
-          apiKey: "AIzaSyBGvL5ByDIJwFXmZSBSOzhzREAXPayPcjc",
-          authDomain: "fir-auth-53ece.firebaseapp.com",
-        });
+   /* this.afAuth.authState.subscribe(auth => {
+      if(!auth)
+        this.rootPage = IniciarsesionPage;//si el usuario
+      else
+        this.rootPage = HomePage;//pa
+    });*/
+    //firebase.initializeApp({
+      //    apiKey: "AIzaSyBGvL5ByDIJwFXmZSBSOzhzREAXPayPcjc",
+        //  authDomain: "fir-auth-53ece.firebaseapp.com",
+        //});
 
     firebase.auth().onAuthStateChanged(usuario=>{
       if(usuario != null){
@@ -51,6 +63,7 @@ export class MyApp {
         this.contenido.setRoot(this.iniciarSesion);
           }
       })
+
 
   }
 
@@ -81,6 +94,21 @@ export class MyApp {
     this.contenido.push(NuevoproductoPage);
     this.menuCtrl.close();
   }
+  /*
+  constructor(platform: Platform, private afAuth: AngularFireAuth, 
+    private statusBar: StatusBar, private splashscreen: SplashScreen) {
+    this.afAuth.authState.subscribe(auth => {
+      if(!auth)
+        this.rootPage = IniciarsesionPage;//si el usuario
+      else
+        this.rootPage = HomePage;//pa
+    });
+    platform.ready().then(() => {
+      statusBar.styleDefault();
+      splashscreen.hide();
+    });
+  }*/
+
 
 }
 

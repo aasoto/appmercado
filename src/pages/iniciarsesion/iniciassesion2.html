@@ -1,0 +1,226 @@
+<!--
+  Generated template for the IniciarsesionPage page.
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+        <!--<ion-navbar>
+            <button ion-button menuToggle icon-only>
+            <ion-icon name="menu"></ion-icon>
+          </button>
+          <ion-title>iniciarsesion</ion-title>
+        </ion-navbar>-->
+        <ion-navbar>
+          <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+          </button>
+          <ion-title>
+            Iniciar Sesion
+          </ion-title>
+        </ion-navbar>
+      </ion-header>
+      
+      
+      <!--<ion-content padding>
+      <form #formulario="ngForm">
+        <ion-row>
+          <ion-col>
+            <ion-item>
+              <ion-label floating>Correo electrónico</ion-label>
+              <ion-input type="email" required name="correo" ngModel></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-item>
+              <ion-label floating>Contraseña</ion-label>
+              <ion-input type="password" required name="clave" ngModel></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+              <button ion-button block (click)="iniciarSesion(formulario)">
+                INICIAR SESIÓN
+              </button>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col>
+                <button ion-button block color="danger" (click)="registrarUsuario(formulario)">
+                  REGISTRARSE
+                </button>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+                <button id="login-button5" ion-button color="positive" block>
+                  <ion-icon name="facebook"></ion-icon>
+                </button>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+              <ion-col>
+                  <button id="login-button6" ion-button color="positive" block>
+                    <ion-icon name="googleplus"></ion-icon>
+                  </button>
+              </ion-col>
+            </ion-row>
+          
+      </form>
+      </ion-content>-->
+      
+      <ion-content padding id="page5" style="background-color:#FDFDFD;">
+        <form id="iniciarSesion-form1" #formulario="ngForm">
+          <ion-list id="iniciarSesion-list2">
+            <ion-item id="iniciarSesion-input1">
+              <ion-label>
+                Email
+              </ion-label>
+              <ion-input type="email" required name="correo" [(ngModel)]="IniciarsesionData.email" ></ion-input>
+            </ion-item>
+            <ion-item id="iniciarSesion-input2">
+              <ion-label>
+                Password
+              </ion-label>
+              <ion-input type="password" required name="clave"  [(ngModel)]="IniciarsesionData.password"></ion-input>
+            </ion-item>
+          </ion-list>
+          <div class="spacer" style="height:40px;" id="iniciarSesion-spacer1"></div>
+          <button id="iniciarSesion-button1" ion-button color="dark" (click)="login()">
+            Ingresar
+          </button>
+          <!--<button id="iniciarSesion-button2" ion-button  color="dark" (click)="registrarUsuario(formulario)">
+            O Crear Cuenta
+          </button>-->
+          <button id="iniciarSesion-button2" ion-button  color="dark" (click)="goToCrearCuenta()">
+            O Crear Cuenta
+          </button>
+          <button id="login2-button12" ion-button color="dark" block on-click="goToRecuperarCuenta()">
+            Olvide Mi Contraseña
+          </button>
+        </form>
+        <div class="spacer" style="width:300px;height:22px;" id="login2-spacer10"></div>
+      
+        <button id="iniciarSesion-button4" ion-button color="positive" block (click)="loginFacebook()">
+          <ion-icon  name="logo-facebook"></ion-icon>
+          
+        </button>
+        <button id="iniciarSesion-button5" ion-button color="danger" block>
+          <ion-icon name="logo-google"></ion-icon>
+        </button>
+      </ion-content>
+
+
+
+
+
+
+
+      import { ViewChild } from '@angular/core';
+import { Component } from '@angular/core';
+import { Platform, NavController, MenuController } from 'ionic-angular';
+import { StatusBar } from '@ionic-native/status-bar';
+import { SplashScreen } from '@ionic-native/splash-screen';
+import { Geolocation } from '@ionic-native/geolocation';
+
+import firebase from 'firebase';
+
+import { HomePage } from '../pages/home/home';
+import { IniciarsesionPage } from "../pages/iniciarsesion/iniciarsesion";
+import { EstadisticasPage } from '../pages/estadisticas/estadisticas';
+import { UbicacionPage } from '../pages/ubicacion/ubicacion';
+import { NuevoproductoPage } from '../pages/nuevoproducto/nuevoproducto';
+
+import { AutenticacionService } from "../servicios/autenticacion.service";
+
+
+import { AngularFireAuth } from 'angularfire2/auth';
+
+
+@Component({
+  templateUrl: 'app.html'
+})
+export class MyApp {
+  rootPage:any = HomePage;
+  homepage = HomePage;
+  iniciarSesion = IniciarsesionPage;
+  estadisticas = EstadisticasPage;
+  ubicacion = UbicacionPage;
+  nuevoproducto = NuevoproductoPage;
+  @ViewChild('contenido') contenido:NavController;
+
+  usuarioEstaConectado = false;
+  /*
+  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, public menuCtrl:MenuController, public autenticacionService:AutenticacionService) {
+    platform.ready().then(() => {
+      // Okay, so the platform is ready and our plugins are available.
+      // Here you can do any higher level native things you might need.
+      statusBar.styleDefault();
+      splashScreen.hide();
+    });
+
+    firebase.initializeApp({
+          apiKey: "AIzaSyBGvL5ByDIJwFXmZSBSOzhzREAXPayPcjc",
+          authDomain: "fir-auth-53ece.firebaseapp.com",
+        });
+
+    firebase.auth().onAuthStateChanged(usuario=>{
+      if(usuario != null){
+        this.usuarioEstaConectado = true;
+        this.contenido.setRoot(this.homepage);
+      }else{
+        this.usuarioEstaConectado = false;
+        this.contenido.setRoot(this.iniciarSesion);
+          }
+      })
+
+  }
+
+  llamarPagina(pagina){
+    this.contenido.setRoot(pagina);
+    this.menuCtrl.close();
+  }
+
+  terminarSesion(){
+    this.autenticacionService.terminarSesion();
+    this.menuCtrl.close();
+  }
+
+  goToListaDeCompras(params){
+    if (!params) params = {};
+    this.contenido.setRoot(HomePage);
+    this.menuCtrl.close();
+  }goToEstadisticas(params){
+    if (!params) params = {};
+    this.contenido.setRoot(EstadisticasPage);
+    this.menuCtrl.close();
+  }goToUbicacion(params){
+    if (!params) params = {};
+    this.contenido.setRoot(UbicacionPage);
+    this.menuCtrl.close();
+  }goToNuevoproducto(params){
+    if (!params) params = {};
+    this.contenido.push(NuevoproductoPage);
+    this.menuCtrl.close();
+  }*/
+
+  constructor(platform: Platform, private afAuth: AngularFireAuth, private statusBar: StatusBar,
+     private splashscreen: SplashScreen) {
+    this.afAuth.authState.subscribe(auth => {
+      if(!auth)
+        this.rootPage = IniciarsesionPage;//si el usuario no ha iniciado sesion lo manda al login
+      else
+        this.rootPage = HomePage;//si no lo manda al home
+    });
+    platform.ready().then(() => {
+      statusBar.styleDefault();
+      splashscreen.hide();
+    });
+ 
+  }
+
+
+}

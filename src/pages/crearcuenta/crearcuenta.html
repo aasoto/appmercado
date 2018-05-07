@@ -10,17 +10,24 @@
 </ion-header>
 <ion-content padding id="page13">
   
-  <form id="registrarCuenta-form8">
+  
     <ion-item id="registrarCuenta-input29">
       <ion-label></ion-label>
-      <ion-input type="email" placeholder="correo"></ion-input>
+      <ion-input type="email" placeholder="correo" [(ngModel)]="signupData.email"></ion-input>
     </ion-item>
     <ion-item id="registrarCuenta-input28">
       <ion-label></ion-label>
-      <ion-input type="password" placeholder="Contraseña" name="contraseña"></ion-input>
+      <ion-input type="password" placeholder="Contraseña" name="contraseña"  [(ngModel)]="signupData.password"></ion-input>
     </ion-item>
-    <button id="registrarCuenta-button20" ion-button color="positive" block on-click="goToLogin()">
-      Registrar
+    <ion-item id="registrarCuenta-input28">
+        <ion-label></ion-label>
+        <ion-input type="password" placeholder="Verificar Contraseña" name="verificarcontraseña" 
+         [(ngModel)]="signupData.passwordRetyped"></ion-input>
+      </ion-item>
+    
+      
+    <button id="registrarCuenta-button20" ion-button color="positive" block on-click="registrar()">
+      Registrar 
     </button>
-  </form>
+
 </ion-content>

@@ -16,8 +16,25 @@ import { AutenticacionService } from "../servicios/autenticacion.service";
 import { RecuperarCuentaPage } from '../pages/recuperar-cuenta/recuperar-cuenta';
 import { CrearcuentaPage } from '../pages/crearcuenta/crearcuenta';
 
+//npm install firebase angularfire2 --save
+
+
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+
+var config = {
+  apiKey: "AIzaSyCsAy6V1cGFouRoxlRC4doVlctOMrevIMw",
+  authDomain: "proyectomovil-278f9.firebaseapp.com",
+  databaseURL: "https://proyectomovil-278f9.firebaseio.com",
+  projectId: "proyectomovil-278f9",
+  storageBucket: "proyectomovil-278f9.appspot.com",
+  messagingSenderId: "123988444428"
+};
+
 @NgModule({
   declarations: [
+
+
     MyApp,
     HomePage,
     IniciarsesionPage,
@@ -29,7 +46,9 @@ import { CrearcuentaPage } from '../pages/crearcuenta/crearcuenta';
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    AngularFireModule.initializeApp(config),
+    AngularFireAuthModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
