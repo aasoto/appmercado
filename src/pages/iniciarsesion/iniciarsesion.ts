@@ -65,11 +65,11 @@ export class IniciarsesionPage {
 
 
   }
-    
+  /*  
   loginFacebook1() { 
     this.afAuth.auth.signInWithPopup(new firebase.auth.FacebookAuthProvider())
     .then((res) => console.log(res));
-  }
+  }*/
 
   loginFacebook() {
     if (this.platform.is('cordova')) {    
@@ -93,7 +93,7 @@ export class IniciarsesionPage {
     })
     }
   }
-
+/*
   signInWithFacebook() {
     if (this.platform.is('cordova')) {
       return this.facebook.login(['email', 'public_profile']).then(res => {
@@ -115,11 +115,13 @@ export class IniciarsesionPage {
       alerta.present(); 
     })
     }
-  }
+  }*/
 
   goToRecuperarCuenta(params){
     if (!params) params = {};
-    this.navCtrl.push(RecuperarCuentaPage);
+    this.navCtrl.push(RecuperarCuentaPage, { email: this.IniciarsesionData.email });
+  //  this.navCtrl.push(RecuperarCuentaPage);
+    console.log("le envie el correo"+this.IniciarsesionData.email);
   }
   goToCrearCuenta(params){
    // if (!params) params = {};

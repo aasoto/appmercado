@@ -18,12 +18,15 @@
   <h5 id="recuperarCuenta-heading7" style="color:#000000;">
     Ingresa tu correo en instantes enviaremos la contraseña a tu correo
   </h5>
-  <form id="recuperarCuenta-form9">
-    <ion-item id="recuperarCuenta-input29">
+
+
+    <ion-item id="registrarCuenta-input29">
       <ion-label></ion-label>
-      <ion-input type="email" placeholder="correo"></ion-input>
+      <ion-input type="email" placeholder="correo" [(ngModel)]="signupData.email"></ion-input>
     </ion-item>
-  </form>
+    
+
+
   <button id="recuperarCuenta-button21" ion-button color="positive" block on-click=" goToLogin()">
     Recuperar
   </button>
