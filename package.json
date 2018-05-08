@@ -22,6 +22,7 @@
     "@angular/platform-browser": "5.2.9",
     "@angular/platform-browser-dynamic": "5.2.9",
     "@ionic-native/core": "4.6.0",
+    "@ionic-native/facebook": "^4.7.0",
     "@ionic-native/geolocation": "^4.7.0",
     "@ionic-native/google-maps": "^4.7.0",
     "@ionic-native/splash-screen": "4.6.0",
@@ -30,6 +31,7 @@
     "angularfire2": "^5.0.0-rc.4",
     "cordova-android": "7.0.0",
     "cordova-plugin-device": "^2.0.2",
+    "cordova-plugin-facebook4": "git+https://github.com/amritk/cordova-plugin-facebook4.git",
     "cordova-plugin-geolocation": "^4.0.1",
     "cordova-plugin-googlemaps": "^2.2.9",
     "cordova-plugin-ionic-keyboard": "^2.0.5",
@@ -39,6 +41,7 @@
     "firebase": "^4.5.0",
     "ionic-angular": "3.9.2",
     "ionicons": "3.0.0",
+    "promise-polyfill": "7.1.2",
     "rxjs": "5.5.8",
     "sw-toolbox": "3.6.0",
     "zone.js": "0.8.26"
@@ -61,7 +64,11 @@
       "cordova-plugin-device": {},
       "cordova-plugin-splashscreen": {},
       "cordova-plugin-ionic-webview": {},
-      "cordova-plugin-ionic-keyboard": {}
+      "cordova-plugin-ionic-keyboard": {},
+      "cordova-plugin-facebook4": {
+        "APP_ID": "177755989716294",
+        "APP_NAME": "myapp"
+      }
     },
     "platforms": [
       "android"

@@ -21,6 +21,7 @@ import { CrearcuentaPage } from '../pages/crearcuenta/crearcuenta';
 
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
+import { Facebook } from '@ionic-native/facebook';
 
 var config = {
   apiKey: "AIzaSyCsAy6V1cGFouRoxlRC4doVlctOMrevIMw",
@@ -59,14 +60,15 @@ var config = {
     UbicacionPage,
     NuevoproductoPage,
     RecuperarCuentaPage,
-    CrearcuentaPage
+    CrearcuentaPage  
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AutenticacionService,
-    Geolocation
+    Geolocation,
+    Facebook
   ]
 })
 export class AppModule {}

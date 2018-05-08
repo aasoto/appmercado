@@ -30,7 +30,7 @@ export class MyApp {
   ubicacion = UbicacionPage;
   nuevoproducto = NuevoproductoPage;
   @ViewChild('contenido') contenido:NavController;
-
+    
   usuarioEstaConectado = false;
   
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen,

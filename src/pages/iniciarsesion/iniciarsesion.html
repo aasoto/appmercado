@@ -22,10 +22,10 @@
   
   <!--<ion-content padding>
   <form #formulario="ngForm">
-    <ion-row>
+    <ion-row>  
       <ion-col>
         <ion-item>
-          <ion-label floating>Correo electrónico</ion-label>
+          <ion-label floating>Correo electrónico</ion-label> 
           <ion-input type="email" required name="correo" ngModel></ion-input>
         </ion-item>
       </ion-col>
@@ -106,7 +106,7 @@
       <ion-icon  name="logo-facebook"></ion-icon>
       
     </button>
-    <button id="iniciarSesion-button5" ion-button color="danger" block>
+    <button id="iniciarSesion-button5" ion-button color="danger" block (click)="loginGoogle()">
       <ion-icon name="logo-google"></ion-icon>
     </button>
   </ion-content>
